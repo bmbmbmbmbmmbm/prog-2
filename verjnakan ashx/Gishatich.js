@@ -1,6 +1,6 @@
 class Gishatich extends LivingCreature{
     constructor(x, y) {
-        super(x,y)
+        super(x,y);
         this.arag = 0;
         this.time = 0;
         this.energy = 0;
@@ -20,7 +20,7 @@ class Gishatich extends LivingCreature{
     chooseCell(character) {
         this.getNewCoordinates();
         return super.chooseCell(character);
-    }
+    }   
 
     move() {
         let newcell = random(this.chooseCell(0));

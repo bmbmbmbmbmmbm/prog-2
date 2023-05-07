@@ -1,7 +1,7 @@
-class Grass extends LivingCreature {
+class Grass extends LivingCreature{
     constructor(x, y) {
-        super(x,y)
-        this.arag=0
+        super(x,y);
+        this.arag=0;
     }
 
     mul() {

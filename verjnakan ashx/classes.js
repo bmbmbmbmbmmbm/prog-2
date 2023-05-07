@@ -29,5 +29,4 @@ class LivingCreature {
         }
         return found;
     }
-    mul()
 }
