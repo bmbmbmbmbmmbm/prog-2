@@ -1,7 +1,11 @@
+var socket = io();
+
 function setup() {
   frameRate(5);
-  generator(50, 50, 15, 8, 4, 2);
-  createCanvas(matrix[0].length * side, matrix.length * side);
+//   generator(50, 50, 15, 8, 4, 2);
+//   createCanvas(matrix[0].length * side, matrix.length * side);
+     createCanvas(400, 400);
+
   background('#acacac');
   const canvas = document.querySelector("canvas");
   canvas.style.position = "absolute";
@@ -9,8 +13,10 @@ function setup() {
   canvas.style.top = "25%";
 }
 
-function draw() {
-   
+socket.on("MatrixGo", draw);
+
+function draw(matrix) {
+   console.log(matrix)
   for (var y = 0; y < matrix.length; y++) {
       for (var x = 0; x < matrix[y].length; x++) {
 
@@ -33,10 +39,11 @@ function draw() {
               fill("#301934")
           }
 
-          rect(x * side, y * side, side, side);
+          rect(x * 50, y * 50, 50, 50);
       }
 
   
   
   // HumanArr[0].Qaylel();
+}
 }
