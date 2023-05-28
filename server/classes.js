@@ -29,4 +29,10 @@ module.exports = class LivingCreature {
         }
         return found;
     }
+    random(arr){
+            let rand = Math.round(Math.random()* (arr.length - 1));
+            return arr[rand];
+        }
+
 }
+

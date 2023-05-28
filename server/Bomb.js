@@ -53,7 +53,7 @@ module.exports = class Bomb extends LivingCreature{
     }
 
     move() {
-        let newcell = random(this.chooseCell(0));
+        let newcell = this.random(this.chooseCell(0));
         if (this.arag > 4) {
             if (newcell) {
                 let x = newcell[0];
@@ -69,9 +69,9 @@ module.exports = class Bomb extends LivingCreature{
     }
     gmbal() {
         this.getNewCoordinates2();
-        let newcell1 = random(this.chooseCell(1))
-        let newcell2 = random(this.chooseCell(2))
-        let newcell3 = random(this.chooseCell(3))
+        let newcell1 = this.random(this.chooseCell(1))
+        let newcell2 = this.random(this.chooseCell(2))
+        let newcell3 = this.random(this.chooseCell(3))
         if (this.arag > 4) {
             if (newcell1 || newcell2 || newcell3) {
                 for (let i = 0; i < this.directions2.length; i++) {

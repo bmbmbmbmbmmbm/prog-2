@@ -1,10 +1,16 @@
 var socket = io();
 
+let Del = document.getElementById("del")
+Del.addEventListener('click', DelF);
+function DelF(){
+    socket.emit("Delete");
+}
+
 function setup() {
   frameRate(5);
 //   generator(50, 50, 15, 8, 4, 2);
 //   createCanvas(matrix[0].length * side, matrix.length * side);
-     createCanvas(400, 400);
+     createCanvas(30*50, 30*50);
 
   background('#acacac');
   const canvas = document.querySelector("canvas");

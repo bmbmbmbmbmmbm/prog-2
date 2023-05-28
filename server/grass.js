@@ -6,7 +6,7 @@ module.exports =  class Grass extends LivingCreature{
     }
 
     mul() {
-        let newcell = random(this.chooseCell(0));
+        let newcell = this.random(this.chooseCell(0));
         if (newcell && this.arag > 12) {
             let x = newcell[0];
             let y = newcell[1];
@@ -19,3 +19,8 @@ module.exports =  class Grass extends LivingCreature{
     }
 
 }
+
+// function random(arr){
+//     let rand = Math.round(Math.random()* (arr.length - 1));
+//     return arr[rand];
+// }

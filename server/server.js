@@ -14,8 +14,8 @@ app.get("/", function(req, res){
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 
-server.listen(3001, function(){
-   console.log("Example is running on port 3003");
+server.listen(3005, function(){
+   console.log("Example is running");
 });
 
 const LivingCreature = require("./classes");
@@ -85,6 +85,7 @@ function objectCreate() {
      }
  }
 
+
  function game(){
     for (let i = 0; i < GrassArr.length; i++) {
         GrassArr[i].mul();
@@ -98,14 +99,43 @@ function objectCreate() {
     for (let i = 0; i < bombarr.length; i++) {
         bombarr[i].gmbal();
     }
+
+    // function keyPressed() {
+    //     if (keyCode === 65) {
+    //      HumanArr[0].Left()
+    //     } else if (keyCode === 68) {
+    //         HumanArr[0].Right()
+    //     } else if (keyCode === 87) {
+    //         HumanArr[0].Up()
+    //     }else if (keyCode === 83) {
+    //         HumanArr[0].Down()
+    //     }
+    //   }
+    //   keyPressed();
+
    io.sockets.emit("MatrixGo", matrix)
  }
- setInterval(game, 1000);
- generator(15, 15, 20,20,20,20,20)
- objectCreate()
- console.log(grassEaterarr, GrassArr);
+ generator(30,30, 5,15,10,10,4);
+ objectCreate();
+ setInterval(game, 100);
+
 
 
 io.on('connection', function (socket) {
     // socket.emit("MatrixGo", matrix)
+    socket.on("Delete", JnjelSax);
 } )
+
+function JnjelSax() {
+    console.log("asasa");
+    GrassArr = [];
+    grassEaterarr = [];
+    gishaticharr = [];
+    bombarr = [];
+    for (var y = 0; y < matrix.length; y++) {
+        for (var x = 0; x < matrix[y].length; x++) {
+            matrix[y][x] = 0
+        }
+    }
+    io.sockets.emit("MatrixGo", matrix);
+}

@@ -1,4 +1,6 @@
-module.exports = class Human {
+const LivingCreature = require("./classes");
+
+module.exports = class Human{
     constructor(y, x) {
         this.x = x;
         this.y = y;

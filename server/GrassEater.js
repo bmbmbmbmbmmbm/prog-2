@@ -3,7 +3,7 @@ module.exports =  class GrassEater extends LivingCreature{
     constructor(x, y) {
         super(x,y);
         this.arag = 0;
-        this.energy = 8;
+        this.energy = 16;
     }
     getNewCoordinates() {
         this.directions = [
@@ -25,7 +25,7 @@ module.exports =  class GrassEater extends LivingCreature{
  
     move() {
         if (this.arag > 4) {
-            let newcell = random(this.chooseCell(0));
+            let newcell = this.random(this.chooseCell(0));
             if (newcell) {
                 let x = newcell[0];
                 let y = newcell[1];
@@ -45,7 +45,7 @@ module.exports =  class GrassEater extends LivingCreature{
     }
     eat() {
         if (this.arag > 4) {
-            let newcell = random(this.chooseCell(1));
+            let newcell = this.random(this.chooseCell(1));
             if (newcell) {
                 let x = newcell[0];
                 let y = newcell[1];
@@ -74,7 +74,7 @@ module.exports =  class GrassEater extends LivingCreature{
         this.arag++;
     }
     mulxotaker() {
-        let newcell = random(this.chooseCell(0));
+        let newcell = this.random(this.chooseCell(0));
         if (newcell) {
             let x = newcell[0];
             let y = newcell[1];

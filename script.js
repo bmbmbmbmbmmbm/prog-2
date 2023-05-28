@@ -13,7 +13,7 @@ Add.addEventListener('click', event => {
     generator(50, 50, 0, 0, 0, 0, 1);
   });
 
-  let Del = document.getElementById("del")
+let Del = document.getElementById("del")
 Del.addEventListener('click', event => {
     
     for (var y = 0; y < matrix.length; y++) {
@@ -61,8 +61,6 @@ Stbomb.addEventListener('click', event => {
    });
 
 function JnjelSax() {
-    
-
     GrassArr = [];
     grassEaterarr = [];
     gishaticharr = [];
@@ -125,17 +123,17 @@ function JnjelSax() {
 //     canvas.style.top = "25%";
 // }
 
-function keyPressed() {
-    if (keyCode === 65) {
-     HumanArr[0].Left()
-    } else if (keyCode === 68) {
-        HumanArr[0].Right()
-    } else if (keyCode === 87) {
-        HumanArr[0].Up()
-    }else if (keyCode === 83) {
-        HumanArr[0].Down()
-    }
-  }
+// function keyPressed() {
+//     if (keyCode === 65) {
+//      HumanArr[0].Left()
+//     } else if (keyCode === 68) {
+//         HumanArr[0].Right()
+//     } else if (keyCode === 87) {
+//         HumanArr[0].Up()
+//     }else if (keyCode === 83) {
+//         HumanArr[0].Down()
+//     }
+//   }
 // function draw() {
    
     

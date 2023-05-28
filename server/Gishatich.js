@@ -24,7 +24,7 @@ module.exports =  class Gishatich extends LivingCreature{
     }   
 
     move() {
-        let newcell = random(this.chooseCell(0));
+        let newcell = this.random(this.chooseCell(0));
         if (this.arag > 4) {
             if (newcell) {
                 let x = newcell[0];
@@ -44,9 +44,9 @@ module.exports =  class Gishatich extends LivingCreature{
         this.arag++;
     }
     eat() {
-        let newcell = random(this.chooseCell(2));
-        let newcelldatark = random(this.chooseCell(0));
-        let newcellxot = random(this.chooseCell(1));
+        let newcell = this.random(this.chooseCell(2));
+        let newcelldatark = this.random(this.chooseCell(0));
+        let newcellxot = this.random(this.chooseCell(1));
         if (this.arag > 4) {
             if (newcell) {
                 let x = newcell[0];
@@ -77,7 +77,7 @@ module.exports =  class Gishatich extends LivingCreature{
         this.arag++;
     }
     mul() {
-        let newcell = random(this.chooseCell(0));
+        let newcell = this.random(this.chooseCell(0));
         if (newcell) {
             let x = newcell[0];
             let y = newcell[1];
