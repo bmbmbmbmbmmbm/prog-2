@@ -24,15 +24,15 @@ Del.addEventListener('click', event => {
     HumanArr = [];
   });
 
-let Clear = document.getElementById("jnj")
-Clear.addEventListener('click', event => {
-   JnjelSax()
-  });
+// let Clear = document.getElementById("jnj")
+// Clear.addEventListener('click', event => {
+//    JnjelSax()
+//   });
 
-let Start = document.getElementById("Start")
-Start.addEventListener('click', event => {
-    generator(50, 50, 15, 8, 4, 2, 0);
-   });
+// let Start = document.getElementById("Start")
+// Start.addEventListener('click', event => {
+//     generator(50, 50, 15, 8, 4, 2, 0);
+//    });
 
 let Stgrass = document.getElementById("grass")
 Stgrass.addEventListener('click', event => {
