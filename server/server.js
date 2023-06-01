@@ -119,20 +119,20 @@ function objectCreate() {
     //   }
     //   keyPressed();
 
-   if(summer) io.sockets.emit("MatrixGo", matrix); 
-   else io.sockets.emit("MatrixWinter", matrix);
+   if(season == 1) io.sockets.emit("MatrixGo", matrix); 
+   else if(season == 2) io.sockets.emit("MatrixWinter", matrix);
+   else if(season == 3) io.sockets.emit("MatrixAutumn", matrix);
 
  }
-
-summer = true;
-
+ season = 1;
+gamespeed = 100;
 
  function StartGame(){
      console.log("100")
     generator(30,30, 5,15,10,10,4);
     io.sockets.emit("MatrixGo", matrix);
     objectCreate();
-    setInterval(game, 100);
+    setInterval(game, gamespeed);
  }
  StartGame();
 function Em(){
@@ -148,6 +148,8 @@ io.on('connection', function (socket) {
     socket.on("addGish", addGish);
     socket.on("addBomb", addBomb);
     socket.on("winter", winterTime);
+    socket.on("summer", summerTime);
+    socket.on("autumn", autumnTime);
 } )
 
 function addBomb(val1){
@@ -211,11 +213,38 @@ function JnjelSax() {
 }
 
 function winterTime(){
-    summer = false;
+    season = 2;
+    gamespeed = 500;
     GrassArr = [];
     gishaticharr.forEach(element => {
         element.winter = false;
     });
-    io.sockets.emit("MatrixWinter", matrix);
+    // io.sockets.emit("MatrixWinter", matrix);
 }
 
+function summerTime(){
+    season = 1;
+    gamespeed = 100;
+    generator(30, 30, 25, 0, 0, 0, 0);
+    gishaticharr.forEach(element => {
+        element.winter = true;
+    });
+    GrassArr.forEach(element => {
+        element.time = 20;
+    });
+    for (var y = 0; y < matrix.length; y++) {
+        for (var x = 0; x < matrix[y].length; x++) {
+            if (matrix[y][x] == 1) {
+             GrassArr.push(new Grass(x, y));
+            }
+        }
+      }
+}
+
+function autumnTime(){
+    gamespeed = 300;
+    season = 3;
+    GrassArr.forEach(element => {
+        element.time = 30;
+    });
+}

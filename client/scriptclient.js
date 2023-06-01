@@ -5,6 +5,11 @@ var socket = io();
 let Winterbtn = document.getElementById("WinterKnopka");
 Winterbtn.addEventListener('click', event => socket.emit("winter"));
 
+let Summerbtn = document.getElementById("SummerKnopka");
+Summerbtn.addEventListener('click', event => socket.emit("summer"));
+
+let Autumnbtn = document.getElementById("AutumnKnopka");
+Autumnbtn.addEventListener('click', event => socket.emit("autumn"));
 
 let DelAll = document.getElementById("jnj")
 DelAll.addEventListener('click', event => socket.emit("Delete"));
@@ -58,6 +63,7 @@ function setup() {
 
 socket.on("MatrixGo", draw);
 socket.on("MatrixWinter", drawWinter);
+socket.on("MatrixAutumn", drawAutumn);
 
 function drawWinter(matrix) {
     for (var y = 0; y < matrix.length; y++) {
@@ -113,4 +119,32 @@ function draw(matrix) {
   
   // HumanArr[0].Qaylel();
 }
+}
+
+function drawAutumn(matrix) {
+    for (var y = 0; y < matrix.length; y++) {
+        for (var x = 0; x < matrix[y].length; x++) {
+  
+            if (matrix[y][x] == 1) {
+                fill("#d27713");
+            }
+            else if (matrix[y][x] == 0) {
+                fill("#ff8300");
+            }
+            else if (matrix[y][x] == 2) {
+                fill("red");
+            }
+            else if (matrix[y][x] == 3) {
+                fill("#010071")
+            }
+            else if (matrix[y][x] == 4) {
+                fill("black")
+            }
+            else if (matrix[y][x] == 5) {
+                fill("#301934")
+            }
+  
+            rect(x * 50, y * 50, 50, 50);
+        }
+    }
 }
