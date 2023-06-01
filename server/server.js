@@ -119,10 +119,12 @@ function objectCreate() {
     //   }
     //   keyPressed();
 
-   io.sockets.emit("MatrixGo", matrix)
+   if(summer) io.sockets.emit("MatrixGo", matrix); 
+   else io.sockets.emit("MatrixWinter", matrix);
+
  }
 
-
+summer = true;
 
 
  function StartGame(){
@@ -145,6 +147,7 @@ io.on('connection', function (socket) {
     socket.on("addGrassEater", addGrassEater);
     socket.on("addGish", addGish);
     socket.on("addBomb", addBomb);
+    socket.on("winter", winterTime);
 } )
 
 function addBomb(val1){
@@ -205,5 +208,14 @@ function JnjelSax() {
         }
     }
     io.sockets.emit("MatrixGo", matrix);
+}
+
+function winterTime(){
+    summer = false;
+    GrassArr = [];
+    gishaticharr.forEach(element => {
+        element.winter = false;
+    });
+    io.sockets.emit("MatrixWinter", matrix);
 }
 

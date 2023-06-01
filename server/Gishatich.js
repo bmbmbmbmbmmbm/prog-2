@@ -5,6 +5,7 @@ module.exports =  class Gishatich extends LivingCreature{
         this.arag = 0;
         this.time = 0;
         this.energy = 0;
+        this.winter = true;
     }
     getNewCoordinates() {
         this.directions = [
@@ -24,24 +25,27 @@ module.exports =  class Gishatich extends LivingCreature{
     }   
 
     move() {
-        let newcell = this.random(this.chooseCell(0));
-        if (this.arag > 4) {
-            if (newcell) {
-                let x = newcell[0];
-                let y = newcell[1];
-                matrix[this.y][this.x] = 0;
-                matrix[y][x] = 3;
-                this.arag = 0;
-                this.x = x;
-                this.y = y;
-                this.time++;
-                if (this.time >= 10) {
-                    this.mul();
+        if(this.winter){
+            let newcell = this.random(this.chooseCell(0));
+            if (this.arag > 4) {
+                if (newcell) {
+                    let x = newcell[0];
+                    let y = newcell[1];
+                    matrix[this.y][this.x] = 0;
+                    matrix[y][x] = 3;
+                    this.arag = 0;
+                    this.x = x;
+                    this.y = y;
+                    this.time++;
+                    if (this.time >= 10) {
+                        this.mul();
+                    }
                 }
+    
             }
-
+            this.arag++;
         }
-        this.arag++;
+
     }
     eat() {
         let newcell = this.random(this.chooseCell(2));

@@ -2,6 +2,10 @@
 
 var socket = io();
 
+let Winterbtn = document.getElementById("WinterKnopka");
+Winterbtn.addEventListener('click', event => socket.emit("winter"));
+
+
 let DelAll = document.getElementById("jnj")
 DelAll.addEventListener('click', event => socket.emit("Delete"));
 
@@ -53,6 +57,31 @@ function setup() {
 }
 
 socket.on("MatrixGo", draw);
+socket.on("MatrixWinter", drawWinter);
+
+function drawWinter(matrix) {
+    for (var y = 0; y < matrix.length; y++) {
+        for (var x = 0; x < matrix[y].length; x++) {
+            if (matrix[y][x] == 0) {
+                fill("#03e0fa");
+            }
+            else if (matrix[y][x] == 2) {
+                fill("red");
+            }
+            else if (matrix[y][x] == 3) {
+                fill("#5f2f1b")
+            }
+            else if (matrix[y][x] == 4) {
+                fill("black")
+            }
+            else if (matrix[y][x] == 5) {
+                fill("#301934")
+            }
+  
+            rect(x * 50, y * 50, 50, 50);
+        }
+    }
+}
 
 function draw(matrix) {
   for (var y = 0; y < matrix.length; y++) {
@@ -62,7 +91,7 @@ function draw(matrix) {
               fill("green");
           }
           else if (matrix[y][x] == 0) {
-              fill("#acacac");
+              fill("#00ff04");
           }
           else if (matrix[y][x] == 2) {
               fill("red");
